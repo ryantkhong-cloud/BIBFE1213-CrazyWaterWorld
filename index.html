@@ -132,6 +132,21 @@ nav a{transform:none}
 .act{clip-path:none;padding:90px 0}
 section{padding:70px 0}
 .h2::before{inset:-8px -10px}
+/* Agenda: stack table rows as cards */
+.tw{overflow:visible;border:0;box-shadow:none}
+table,tbody,tr,td{display:block;width:100%}
+table{min-width:0}
+thead{display:none}
+tbody tr{background:#fff;border:3px solid var(--ink);border-radius:16px 4px 16px 4px;box-shadow:5px 5px 0 var(--aqua);margin-bottom:14px;padding:6px 0}
+tbody tr:nth-child(even){background:#fff}
+tbody tr[hidden]{display:none}
+tbody td{border:0;padding:8px 14px}
+tbody td::before{display:block;font-size:.68rem;font-weight:800;letter-spacing:.09em;text-transform:uppercase;color:var(--ocean);margin-bottom:2px}
+td:nth-child(1)::before{content:"Time"}
+td:nth-child(2)::before{content:"Activity"}
+td:nth-child(3)::before{content:"Description"}
+td:nth-child(4)::before{content:"Location/Zone"}
+td:first-child{font-size:1.05rem;font-weight:800;color:var(--ocean);white-space:normal}
 }
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}.bub{display:none}}
 </style>
