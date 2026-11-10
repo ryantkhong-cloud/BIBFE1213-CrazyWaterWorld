@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Crazy Water World: Splash of Hearts Carnival | 疯狂水世界：水花连心嘉年华</title>
+<meta name="description" content="One-day water festival, Saturday 17 July 2027, Crazy Water World, Bukit Jalil, Kuala Lumpur. Fictional student project.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+/* ===== Design tokens ===== */
+:root{--ocean:#0077B6;--aqua:#00B4D8;--navy:#03045E;--sun:#FFD166;--coral:#FF6B6B;--white:#fff;--ink:#111;
+--head:'Bebas Neue','Impact','Arial Narrow',sans-serif;--body:'Inter','Open Sans',system-ui,-apple-system,'Segoe UI',Arial,sans-serif;--tilt:-2deg;--cut:5vw}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{font-family:var(--body);color:var(--ink);background:#eaf9ff;line-height:1.6;overflow-x:hidden}
+a{color:inherit}
+:focus-visible{outline:4px solid var(--coral);outline-offset:3px}
+h1,h2,h3{font-family:var(--head);letter-spacing:.03em;line-height:1.05;font-weight:400}
+.wrap{max-width:1180px;margin:auto;padding:0 20px}
+section{position:relative;padding:90px 0;overflow:hidden}
+/* Persona-style tilted headings with splash burst behind */
+.h2{font-size:clamp(2.6rem,7vw,5rem);display:inline-block;transform:rotate(var(--tilt));background:var(--ink);color:var(--white);padding:.05em .35em;box-shadow:8px 8px 0 var(--coral);margin-bottom:34px;position:relative}
+.h2::before{content:"";position:absolute;inset:-14px -22px;background:var(--sun);z-index:-1;clip-path:polygon(0 30%,12% 20%,10% 0,28% 14%,40% 0,50% 16%,66% 2%,72% 18%,92% 8%,88% 30%,100% 45%,90% 62%,100% 85%,78% 80%,70% 100%,52% 84%,36% 100%,28% 82%,8% 96%,12% 70%)}
+.halftone{background-image:radial-gradient(rgba(0,0,0,.14) 20%,transparent 21%);background-size:12px 12px}
+.batik{background-image:radial-gradient(circle at 50% 50%,transparent 8px,rgba(255,255,255,.18) 9px,rgba(255,255,255,.18) 11px,transparent 12px);background-size:36px 36px}
+.wave{display:block;width:100%;height:60px;position:absolute;left:0;bottom:-1px}
+/* ===== Header ===== */
+header{position:sticky;top:0;z-index:50;background:var(--ink);border-bottom:5px solid var(--sun)}
+.bar{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font-family:var(--head);font-size:1.7rem;color:var(--sun);text-decoration:none;letter-spacing:.05em}
+.logo span{color:var(--aqua)}
+nav ul{display:flex;gap:6px;list-style:none;padding:0}
+nav a{display:block;color:#fff;text-decoration:none;font-weight:800;padding:8px 14px;transform:skewX(-12deg)}
+nav a:hover,nav a:focus-visible{background:var(--aqua);color:var(--ink)}
+nav li:last-child a{background:var(--coral);color:var(--ink)}
+.burger{display:none;background:var(--sun);border:3px solid #fff;font-size:1.5rem;width:46px;height:42px;cursor:pointer;font-weight:800}
+/* ===== Hero ===== */
+.hero{background:linear-gradient(115deg,var(--navy) 0 38%,var(--ocean) 38% 70%,var(--aqua) 70%);color:#fff;padding:90px 0 130px;clip-path:polygon(0 0,100% 0,100% 92%,0 100%)}
+.hero::after{content:"";position:absolute;inset:0;background:repeating-conic-gradient(from 0deg at 75% 40%,rgba(255,255,255,.08) 0 2deg,transparent 2deg 9deg);pointer-events:none}
+.hero .wrap{position:relative;z-index:2}
+.kicker{display:inline-block;background:var(--coral);color:var(--ink);font-weight:800;padding:4px 18px;clip-path:polygon(0 0,100% 10%,95% 100%,4% 90%);margin-bottom:14px}
+.hero h1{font-size:clamp(3.2rem,10vw,7.6rem);transform:rotate(var(--tilt));text-shadow:6px 6px 0 var(--ink);margin-bottom:6px}
+.hero h1 em{color:var(--sun);font-style:normal;display:block}
+.zh{font-size:clamp(1.5rem,4vw,2.6rem);font-weight:800;background:var(--sun);color:var(--ink);display:inline-block;padding:2px 14px;box-shadow:6px 6px 0 var(--ink);margin:10px 0}
+.theme{font-size:clamp(1.1rem,2.6vw,1.6rem);font-weight:800;margin:8px 0}
+.facts{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0}
+.facts span{background:#fff;color:var(--ink);padding:6px 14px;font-weight:800;border:3px solid var(--ink);box-shadow:4px 4px 0 var(--ink)}
+.btn{display:inline-block;font-family:var(--head);font-size:1.6rem;letter-spacing:.06em;padding:8px 28px;text-decoration:none;border:4px solid var(--ink);box-shadow:6px 6px 0 var(--ink);transform:skewX(-8deg);cursor:pointer;transition:transform .15s,box-shadow .15s;margin:8px 10px 0 0}
+.btn:hover{transform:skewX(-8deg) translate(-2px,-2px);box-shadow:9px 9px 0 var(--ink)}
+.b1{background:var(--sun);color:var(--ink)}.b2{background:var(--coral);color:var(--ink)}
+#count{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+.cd{background:var(--ink);border:3px solid var(--sun);min-width:84px;padding:6px 10px;text-align:center;transform:rotate(-2deg)}
+.cd b{display:block;font-family:var(--head);font-size:2.4rem;color:var(--sun);line-height:1}
+.cd small{font-size:.75rem;text-transform:uppercase;letter-spacing:.1em}
+#cdmsg{font-family:var(--head);font-size:2.4rem;color:var(--sun)}
+/* Bubbles */
+.bub{position:absolute;bottom:-60px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#fff9,#fff2 60%,#fff4);border:2px solid #fff8;animation:rise linear infinite;z-index:1}
+@keyframes rise{to{transform:translateY(-120vh) translateX(30px)}}
+/* ===== About ===== */
+.about{background:#fff}
+.cols{display:grid;grid-template-columns:1.2fr 1fr;gap:34px;align-items:center}
+.panel{background:var(--aqua);border:4px solid var(--ink);box-shadow:10px 10px 0 var(--ink);padding:26px;clip-path:polygon(0 0,100% 3%,98% 100%,2% 97%);position:relative}
+.panel h3{font-size:2.2rem;color:var(--navy)}
+.hearts{font-size:2.4rem;letter-spacing:.2em}
+/* ===== Activities ===== */
+.act{background:linear-gradient(170deg,var(--ocean),var(--navy));color:#fff;clip-path:polygon(0 4%,100% 0,100% 96%,0 100%);padding:130px 0}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:26px}
+.card{background:#fff;color:var(--ink);border:4px solid var(--ink);box-shadow:8px 8px 0 var(--sun);padding:22px;text-align:left;font:inherit;cursor:pointer;border-radius:22px 4px 22px 4px;transition:transform .15s}
+.card:nth-child(even){border-radius:4px 22px 4px 22px;box-shadow:8px 8px 0 var(--coral)}
+.card:hover,.card:focus-visible{transform:translate(-3px,-3px) rotate(-1deg)}
+.card .ic{font-size:2.6rem;display:block}
+.card h3{font-size:1.9rem;color:var(--ocean)}
+.card p{font-size:.95rem}.card em{font-style:normal;font-weight:800;color:var(--coral)}
+/* ===== Lucky draw ===== */
+.lucky{background:var(--sun)}
+.prizes{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px;margin:20px 0}
+.prize{background:var(--ink);color:#fff;text-align:center;padding:26px 14px;clip-path:polygon(0 6%,50% 0,100% 6%,100% 94%,50% 100%,0 94%);}
+.prize .ic{font-size:3.4rem}.prize h3{font-size:1.9rem;color:var(--sun)}.prize b{color:var(--aqua)}
+.note{background:#fff;border:4px dashed var(--coral);padding:14px 18px;font-weight:600}
+/* ===== Agenda ===== */
+.agenda{background:#fff}
+.filters{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:22px}
+.filters button{font-family:var(--head);font-size:1.3rem;letter-spacing:.05em;padding:4px 18px;background:#fff;border:3px solid var(--ink);cursor:pointer;transform:skewX(-10deg)}
+.filters button[aria-pressed="true"]{background:var(--coral);box-shadow:4px 4px 0 var(--ink)}
+.tw{overflow-x:auto;border:4px solid var(--ink);box-shadow:8px 8px 0 var(--aqua)}
+table{border-collapse:collapse;width:100%;min-width:720px}
+th{background:var(--ink);color:var(--sun);font-family:var(--head);font-size:1.3rem;letter-spacing:.05em;padding:10px;text-align:left}
+td{padding:10px;border-top:2px solid #cde;vertical-align:top;font-size:.93rem}
+tbody tr{cursor:pointer}
+tbody tr:nth-child(even){background:#eaf9ff}
+tbody tr:hover,tbody tr:focus-visible{background:var(--sun)}
+td:first-child{font-weight:800;white-space:nowrap;color:var(--ocean)}
+td:nth-child(2){font-weight:800}
+.hint{font-size:.9rem;margin-top:10px}
+/* ===== Visitor info ===== */
+.info{background:linear-gradient(160deg,var(--aqua),var(--ocean))}
+.info .h2{margin-bottom:40px}
+.ig{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px}
+.ib{background:#fff;border:4px solid var(--ink);box-shadow:7px 7px 0 var(--navy);padding:18px 20px}
+.ib h3{font-size:1.7rem;color:var(--coral)}
+.ib ul{padding-left:20px;font-size:.95rem}
+/* ===== RSVP ===== */
+.rsvp{background:#fff}
+.form{max-width:640px;background:var(--sun);border:4px solid var(--ink);box-shadow:10px 10px 0 var(--coral);padding:26px}
+.tag{display:inline-block;background:var(--ink);color:var(--sun);font-weight:800;padding:2px 12px;margin-bottom:14px;clip-path:polygon(0 0,100% 0,94% 100%,0 100%)}
+label{font-weight:800;display:block;margin-top:14px}
+input[type=text],input[type=email],input[type=number]{width:100%;padding:11px;font:inherit;border:3px solid var(--ink);background:#fff}
+.err{color:#b00020;font-weight:800;font-size:.88rem;min-height:1.2em;display:block}
+.chk{display:flex;gap:10px;align-items:flex-start;font-weight:600}.chk input{width:22px;height:22px;margin-top:3px}
+#ok{display:none;margin-top:18px;background:var(--navy);color:#fff;padding:14px;border:4px solid var(--aqua);font-weight:800}
+/* ===== Footer ===== */
+footer{background:var(--ink);color:#fff;padding:40px 0;text-align:center;border-top:6px solid var(--sun)}
+footer b{color:var(--sun)}
+/* ===== Modal ===== */
+#modal{position:fixed;inset:0;background:rgba(3,4,94,.8);display:none;align-items:center;justify-content:center;z-index:100;padding:16px}
+#modal.open{display:flex}
+.mbox{background:#fff;border:5px solid var(--ink);box-shadow:12px 12px 0 var(--coral);max-width:520px;width:100%;padding:26px;position:relative;max-height:90vh;overflow:auto}
+.mbox h3{font-size:2.3rem;color:var(--ocean)}
+.mbox p{margin:8px 0}.mbox .s{background:var(--sun);padding:10px;border-left:8px solid var(--coral);font-weight:600}
+#mx{position:absolute;top:8px;right:8px;background:var(--ink);color:#fff;border:0;width:40px;height:40px;font-size:1.3rem;cursor:pointer}
+/* ===== Responsive: reduce tilt and cuts on mobile ===== */
+@media(max-width:820px){
+:root{--tilt:0deg}
+.burger{display:block}
+nav{position:absolute;top:69px;left:0;right:0;background:var(--ink);display:none}
+nav.open{display:block}
+nav ul{flex-direction:column;padding:10px 20px 20px}
+nav a{transform:none}
+.cols{grid-template-columns:1fr}
+.hero{clip-path:polygon(0 0,100% 0,100% 97%,0 100%);background:linear-gradient(160deg,var(--navy) 0 45%,var(--ocean) 45%)}
+.act{clip-path:none;padding:90px 0}
+section{padding:70px 0}
+.h2::before{inset:-8px -10px}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}.bub{display:none}}
+</style>
+</head>
+<body>
+<header>
+ <div class="wrap bar">
+  <a class="logo" href="#home">CRAZY WATER <span>WORLD</span> 💧</a>
+  <button class="burger" id="burger" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav">☰</button>
+  <nav id="nav" aria-label="Main navigation">
+   <ul>
+    <li><a href="#home">Home</a></li><li><a href="#about">About</a></li><li><a href="#activities">Activities</a></li>
+    <li><a href="#agenda">Agenda</a></li><li><a href="#visitor">Visitor Info</a></li><li><a href="#rsvp">RSVP</a></li>
+   </ul>
+  </nav>
+ </div>
+</header>
+
+<main>
+<!-- HERO -->
+<section class="hero" id="home">
+ <div class="wrap">
+  <span class="kicker">ONE DAY ONLY! 💦</span>
+  <h1>Crazy Water World<em>Splash of Hearts Carnival</em></h1>
+  <p class="zh" lang="zh">疯狂水世界：水花连心嘉年华</p>
+  <p class="theme" lang="zh">水花连众心，多元共享乐<br><span lang="en" style="font-weight:600;font-size:.9em">Splash Connects Hearts, Diversity Shares Joy</span></p>
+  <div class="facts"><span>📅 Sat, 17 July 2027</span><span>⏰ 10:00–20:00</span><span>📍 Bukit Jalil, Kuala Lumpur</span></div>
+  <p style="max-width:560px;font-weight:600">Soak up a whole day of splashes, music and smiles with every family, generation and community in KL!</p>
+  <a class="btn b1" href="#agenda">View Agenda</a><a class="btn b2" href="#visitor">Plan Your Visit</a>
+  <div id="count" aria-live="off" role="timer" aria-label="Countdown to the festival">
+   <div class="cd"><b id="d">0</b><small>Days</small></div><div class="cd"><b id="h">0</b><small>Hours</small></div>
+   <div class="cd"><b id="m">0</b><small>Minutes</small></div><div class="cd"><b id="s">0</b><small>Seconds</small></div>
+  </div>
+  <p id="cdmsg" hidden>The festival has started!</p>
+ </div>
+ <div id="bubbles" aria-hidden="true"></div>
+</section>
+
+<!-- ABOUT -->
+<section class="about batik" id="about">
+ <div class="wrap cols">
+  <div>
+   <h2 class="h2">About the Theme</h2>
+   <p><strong lang="zh">水花连众心，多元共享乐</strong> means every splash connects us. Kuala Lumpur is home to many communities, and water is something everyone enjoys, shares and needs.</p>
+   <p style="margin-top:12px">Crazy Water World: Splash of Hearts Carnival invites families with young children, youth, seniors, tourists and neighbours of every background to play, eat, watch and celebrate side by side, with one shared wish: joy for all.</p>
+  </div>
+  <div class="panel halftone"><h3>Splash Connects Hearts</h3><p class="hearts" role="img" aria-label="Hearts and water drops">💧💙💧💛💧❤️💧</p><p>From the first bucket pour to the last dance, the day is built for sharing laughter across ages and cultures.</p></div>
+ </div>
+</section>
+
+<!-- ACTIVITIES -->
+<section class="act halftone" id="activities">
+ <div class="wrap">
+  <h2 class="h2">Featured Activities</h2>
+  <div class="grid">
+   <button class="card" data-title="Opening Ceremony" data-time="11:00–11:45" data-loc="Main stage" data-desc="Hosted by Malaysian singer Shila Amzah. She presses the launch button; high-level water buckets pour water down simultaneously and the big screen shows the “水花连心” visual of splashes forming connected hearts. Includes a short multi-ethnic symbolic water blessing." data-safe="Stay behind the barriers; the buckets will soak the zone below."><span class="ic">🎤</span><h3>Opening Ceremony</h3><p>Shila Amzah launches the splash! <em>11:00</em></p></button>
+   <button class="card" data-title="Water Battle Zone" data-time="12:30–14:00 and 17:00–19:00" data-loc="Water-battle zone" data-desc="A dedicated zone with water guns provided by the organiser. Team up, refill and splash for fun." data-safe="No aiming at face or head. No homemade or modified water guns. No ice, hot water or hard objects."><span class="ic">🔫</span><h3>Water Battle Zone</h3><p>Provided water guns, big fun. <em>Fair-play rules apply.</em></p></button>
+   <button class="card" data-title="DJ Water Splash Party" data-time="17:00–19:00" data-loc="Main pool / water-battle zone" data-desc="A DJ-led water party with beats, bubbles and splashes, alongside the water-battle zone." data-safe="Hydrate often and keep hold of your wristband and belongings."><span class="ic">🎧</span><h3>DJ Water Splash Party</h3><p>Beats and splashes. <em>17:00–19:00</em></p></button>
+   <button class="card" data-title="Children’s Bubble Party" data-time="14:40–15:20" data-loc="Family zone" data-desc="A supervised bubble zone for young children and parents." data-safe="Children must stay with a parent or guardian at all times."><span class="ic">🫧</span><h3>Children’s Bubble Party</h3><p>Bubbles for little ones. <em>14:40</em></p></button>
+   <button class="card" data-title="Water Splash Market" data-time="10:00–20:00" data-loc="Market zone" data-desc="Local handicrafts, food, swimwear and waterproof phone pouches." data-safe="Choose freshly prepared food from clean, licensed stalls and keep walkways clear."><span class="ic">🛍️</span><h3>Water Splash Market</h3><p>Crafts, food, swimwear, phone pouches. <em>All day</em></p></button>
+   <button class="card" data-title="Stage Performances" data-time="11:45–12:30 and 15:20–16:10" data-loc="Main stage" data-desc="Cultural dances and a live band, followed later by children’s theatre and a magic show." data-safe="Priority seating is available for seniors, pregnant visitors and families with prams."><span class="ic">🎭</span><h3>Stage Performances</h3><p>Dance, band, theatre and magic.</p></button>
+   <button class="card" data-title="Lucky Draw" data-time="14:00–14:40 and 19:00–19:45" data-loc="Main stage" data-desc="Two rounds. Round 2 features the top three prizes: a car, a motorcycle and an iPhone 18 Pro Max 1TB. Other prizes are “精彩好礼”. Winners must be present." data-safe="Keep your wristband safe and stay in the marked seating area."><span class="ic">🎁</span><h3>Lucky Draw</h3><p>Two rounds, big prizes. <em>Be present to win!</em></p></button>
+  </div>
+ </div>
+</section>
+
+<!-- LUCKY DRAW -->
+<section class="lucky halftone" id="lucky">
+ <div class="wrap">
+  <h2 class="h2">Lucky Draw</h2>
+  <p style="font-weight:800;font-size:1.15rem">Two rounds: Round 1 at 14:00–14:40 and Round 2 at 19:00–19:45, both on the main stage.</p>
+  <div class="prizes">
+   <div class="prize"><span class="ic" aria-hidden="true">🚗</span><h3>Top Prize</h3><p><b>A Car</b></p></div>
+   <div class="prize"><span class="ic" aria-hidden="true">🏍️</span><h3>Second Prize</h3><p><b>A Motorcycle</b></p></div>
+   <div class="prize"><span class="ic" aria-hidden="true">📱</span><h3>Third Prize</h3><p><b>iPhone 18 Pro Max 1TB</b></p></div>
+  </div>
+  <p style="font-size:1.3rem;font-weight:800;margin-bottom:12px" lang="zh">其他奖品：精彩好礼 🎉</p>
+  <p class="note">⚠️ Winners must be present at the main stage when their names are called. Collect your wristband at entry (10:00–11:00) to be eligible.</p>
+ </div>
+</section>
+
+<!-- AGENDA -->
+<section class="agenda" id="agenda">
+ <div class="wrap">
+  <h2 class="h2">Festival Agenda</h2>
+  <div class="filters" role="group" aria-label="Filter agenda by category">
+   <button aria-pressed="true" data-f="all">All</button><button aria-pressed="false" data-f="opening">Opening</button>
+   <button aria-pressed="false" data-f="water">Water Play</button><button aria-pressed="false" data-f="family">Family</button>
+   <button aria-pressed="false" data-f="stage">Stage</button><button aria-pressed="false" data-f="market">Market</button>
+   <button aria-pressed="false" data-f="lucky">Lucky Draw</button><button aria-pressed="false" data-f="dj">DJ</button>
+  </div>
+  <div class="tw">
+  <table>
+   <thead><tr><th scope="col">Time</th><th scope="col">Activity</th><th scope="col">Description</th><th scope="col">Location/Zone</th></tr></thead>
+   <tbody id="rows">
+    <tr tabindex="0" data-cat="opening" data-safe="Keep to the queue lines and have your child's wristband fitted before entering."><td>10:00–11:00</td><td>Opening entry &amp; wristband collection</td><td>Visitors enter, collect wristbands for lucky draw eligibility, and receive a safety leaflet</td><td>Main entrance</td></tr>
+    <tr tabindex="0" data-cat="market" data-safe="Choose freshly prepared food from clean stalls and keep walkways clear."><td>10:00–20:00</td><td>Water Splash Market</td><td>Local handicrafts, food, swimwear and waterproof phone pouches</td><td>Market zone</td></tr>
+    <tr tabindex="0" data-cat="opening" data-safe="Stay behind barriers; the water pours down from high points and the area below will get soaked."><td>11:00–11:45</td><td>Official opening ceremony</td><td>Hosted by Shila Amzah. She presses the launch button; high-level water buckets pour water down simultaneously and the big screen shows the “水花连心” visual. Includes a short multi-ethnic symbolic water blessing.</td><td>Main stage</td></tr>
+    <tr tabindex="0" data-cat="stage" data-safe="Priority seating is reserved for seniors, pregnant visitors and families with prams."><td>11:45–12:30</td><td>Stage performance 1</td><td>Cultural dances and live band</td><td>Main stage</td></tr>
+    <tr tabindex="0" data-cat="water" data-safe="Follow lifeguard instructions, hydrate and rest. Water-gun rules apply."><td>12:30–14:00</td><td>Free play &amp; lunch break</td><td>Water park facilities and water-battle zone open; visitors are advised to hydrate and rest</td><td>Water park / water-battle zone / food area</td></tr>
+    <tr tabindex="0" data-cat="lucky" data-safe="Winners must be present. Stay in the seating area and keep your wristband safe."><td>14:00–14:40</td><td>Lucky draw round 1</td><td>Sponsor prizes described as “精彩好礼”; winners must be present</td><td>Main stage</td></tr>
+    <tr tabindex="0" data-cat="family" data-safe="Children must stay with a parent or guardian at all times."><td>14:40–15:20</td><td>Children’s bubble party</td><td>Supervised bubble zone for young children and parents</td><td>Family zone</td></tr>
+    <tr tabindex="0" data-cat="stage" data-safe="Keep aisles clear and supervise children during the show."><td>15:20–16:10</td><td>Stage performance 2</td><td>Children’s theatre and magic show</td><td>Main stage</td></tr>
+    <tr tabindex="0" data-cat="family" data-safe="Drink water regularly, apply sunscreen and listen for the safety announcement."><td>16:10–17:00</td><td>Rest &amp; hydration break</td><td>Shaded rest areas, water stations, sunscreen point and safety announcement</td><td>Rest zones</td></tr>
+    <tr tabindex="0" data-cat="dj water" data-safe="Hydrate often, mind the wet floors and follow water-gun rules."><td>17:00–19:00</td><td>DJ water splash party</td><td>DJ-led water party; water-battle zone with provided water guns</td><td>Main pool / water-battle zone</td></tr>
+    <tr tabindex="0" data-cat="lucky" data-safe="Winners must be present. Stay in the seating area and keep your wristband safe."><td>19:00–19:45</td><td>Lucky draw round 2</td><td>Top three prizes: a car, a motorcycle and an iPhone 18 Pro Max 1TB; other prizes are “精彩好礼”. Winners must be present.</td><td>Main stage</td></tr>
+    <tr tabindex="0" data-cat="stage" data-safe="Leave in an orderly way, check for belongings and visit lost-and-found if needed."><td>19:45–20:00</td><td>Closing &amp; dispersal</td><td>Closing announcement, lost-and-found reminder and orderly exit</td><td>Main stage / exit</td></tr>
+   </tbody>
+  </table>
+  </div>
+  <p class="hint">💡 Click or press Enter on any row for details and a safety note.</p>
+ </div>
+</section>
+
+<!-- VISITOR INFO -->
+<section class="info batik" id="visitor">
+ <div class="wrap">
+  <h2 class="h2">Visitor Info &amp; Safety</h2>
+  <div class="ig">
+   <div class="ib"><h3>🎒 What to Bring</h3><ul><li>Swimwear and a change of clothes</li><li>Towel, sunscreen and a hat</li><li>Waterproof phone pouch (or buy one at the market)</li><li>Reusable water bottle</li></ul></div>
+   <div class="ib"><h3>🚻 Facilities</h3><ul><li>Lockers and changing rooms</li><li>Prayer room</li><li>Nursing room</li><li>First-aid stations</li><li>Drinking-water stations</li></ul></div>
+   <div class="ib"><h3>👶 Child Safety</h3><ul><li>Children wear wristbands with a parent's phone number</li><li>Young children must be supervised at all times</li><li>Lost-and-found at the main stage / exit</li></ul></div>
+   <div class="ib"><h3>🔫 Water-Gun Rules</h3><ul><li>Never aim at the face or head</li><li>No homemade or modified water guns</li><li>No ice, hot water or hard objects</li><li>Use only the water guns provided</li></ul></div>
+   <div class="ib"><h3>⛈️ Weather Protocol</h3><ul><li>If thunder or lightning is detected, water activities pause</li><li>Leave pools and move to shelter at once</li><li>Resume only when staff give the all-clear</li></ul></div>
+   <div class="ib"><h3>👥 Crowds &amp; Comfort</h3><ul><li>Crowd control marshals guide busy areas</li><li>Priority seating for seniors, pregnant visitors and families with prams</li><li>Food hygiene checked at all food stalls</li></ul></div>
+  </div>
+ </div>
+</section>
+
+<!-- RSVP -->
+<section class="rsvp" id="rsvp">
+ <div class="wrap">
+  <h2 class="h2">RSVP</h2>
+  <form class="form halftone" id="form" novalidate>
+   <span class="tag">SIMULATED FORM – DEMO ONLY</span>
+   <label for="name">Full name</label><input type="text" id="name" autocomplete="name"><span class="err" id="e1" role="alert"></span>
+   <label for="email">Email</label><input type="email" id="email" autocomplete="email"><span class="err" id="e2" role="alert"></span>
+   <label for="num">Number of visitors (1–10)</label><input type="number" id="num" min="1" max="10" value="1"><span class="err" id="e3" role="alert"></span>
+   <label class="chk"><input type="checkbox" id="ok1"> I understand this is a demo and agree to the safety rules.</label><span class="err" id="e4" role="alert"></span>
+   <button class="btn b2" type="submit">Send RSVP</button>
+   <div id="ok" role="status"></div>
+  </form>
+ </div>
+</section>
+</main>
+
+<footer>
+ <div class="wrap">
+  <p><b>Crazy Water World: Splash of Hearts Carnival</b> · <span lang="zh">疯狂水世界：水花连心嘉年华</span></p>
+  <p>Crazy Water World, Persiaran Splash, Bukit Jalil, 57000 Kuala Lumpur (fictional address)</p>
+  <p style="margin-top:10px;font-weight:800">This is a student project. Event details are fictional.</p>
+ </div>
+</footer>
+
+<!-- Detail modal -->
+<div id="modal" role="dialog" aria-modal="true" aria-labelledby="mt">
+ <div class="mbox">
+  <button id="mx" aria-label="Close details">✕</button>
+  <h3 id="mt"></h3><p><strong id="mtime"></strong> · 📍 <span id="mloc"></span></p>
+  <p id="mdesc"></p><p class="s">🛟 Safety note: <span id="msafe"></span></p>
+ </div>
+</div>
+
+<script>
+/* ===== Mobile menu ===== */
+const burger=document.getElementById('burger'),nav=document.getElementById('nav');
+burger.addEventListener('click',()=>{const o=nav.classList.toggle('open');burger.setAttribute('aria-expanded',o);burger.textContent=o?'✕':'☰'});
+nav.addEventListener('click',e=>{if(e.target.tagName==='A'){nav.classList.remove('open');burger.setAttribute('aria-expanded','false');burger.textContent='☰'}});
+
+/* ===== Floating bubbles (decorative) ===== */
+const bw=document.getElementById('bubbles');
+for(let i=0;i<14;i++){const b=document.createElement('span');b.className='bub';const z=14+Math.random()*40;
+b.style.cssText=`width:${z}px;height:${z}px;left:${Math.random()*100}%;animation-duration:${8+Math.random()*10}s;animation-delay:${-Math.random()*12}s`;bw.appendChild(b)}
+
+/* ===== Countdown to 17 July 2027, 10:00 local time ===== */
+const target=new Date(2027,6,17,10,0,0).getTime();
+function tick(){
+ const diff=target-Date.now();
+ if(diff<=0){document.getElementById('count').hidden=true;document.getElementById('cdmsg').hidden=false;clearInterval(timer);return}
+ const v={d:Math.floor(diff/864e5),h:Math.floor(diff/36e5)%24,m:Math.floor(diff/6e4)%60,s:Math.floor(diff/1e3)%60};
+ for(const k in v)document.getElementById(k).textContent=String(v[k]).padStart(2,'0');
+}
+const timer=setInterval(tick,1000);tick();
+
+/* ===== Agenda filter ===== */
+const rows=[...document.querySelectorAll('#rows tr')],fbtn=[...document.querySelectorAll('.filters button')];
+fbtn.forEach(b=>b.addEventListener('click',()=>{
+ fbtn.forEach(x=>x.setAttribute('aria-pressed',x===b));
+ rows.forEach(r=>{r.hidden=!(b.dataset.f==='all'||r.dataset.cat.split(' ').includes(b.dataset.f))});
+}));
+
+/* ===== Detail modal (rows + activity cards) ===== */
+const modal=document.getElementById('modal');let lastFocus=null;
+function openModal(o,from){
+ lastFocus=from;
+ mt.textContent=o.title;mtime.textContent=o.time;mloc.textContent=o.loc;mdesc.textContent=o.desc;msafe.textContent=o.safe;
+ modal.classList.add('open');document.getElementById('mx').focus();
+}
+function closeModal(){modal.classList.remove('open');if(lastFocus)lastFocus.focus()}
+rows.forEach(r=>{
+ const open=()=>{const c=r.cells;openModal({title:c[1].textContent,time:c[0].textContent,loc:c[3].textContent,desc:c[2].textContent,safe:r.dataset.safe},r)};
+ r.addEventListener('click',open);
+ r.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();open()}});
+});
+document.querySelectorAll('.card').forEach(c=>c.addEventListener('click',()=>openModal(c.dataset,c)));
+document.getElementById('mx').addEventListener('click',closeModal);
+modal.addEventListener('click',e=>{if(e.target===modal)closeModal()});
+document.addEventListener('keydown',e=>{
+ if(!modal.classList.contains('open'))return;
+ if(e.key==='Escape')closeModal();
+ if(e.key==='Tab'){e.preventDefault();document.getElementById('mx').focus()} /* keep focus inside the dialog */
+});
+
+/* ===== RSVP validation (simulated) ===== */
+document.getElementById('form').addEventListener('submit',e=>{
+ e.preventDefault();
+ const n=name.value.trim(),em=email.value.trim(),k=Number(num.value);let ok=true;
+ const set=(id,msg)=>{document.getElementById(id).textContent=msg;if(msg)ok=false};
+ set('e1',n.length<2?'Please enter your full name.':'');
+ set('e2',/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(em)?'':'Please enter a valid email address.');
+ set('e3',Number.isInteger(k)&&k>=1&&k<=10?'':'Enter a whole number from 1 to 10.');
+ set('e4',ok1.checked?'':'Please tick the consent box to continue.');
+ const box=document.getElementById('ok');
+ if(ok){box.style.display='block';box.textContent='✅ Thank you, '+n+'! Demo only – no real booking has been made.';e.target.reset();num.value=1}
+ else box.style.display='none';
+});
+</script>
+</body>
+</html>
